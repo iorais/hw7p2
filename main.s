@@ -64,8 +64,8 @@ compare_and_swap	PROC
 			ldr		r4, [r0]		;r4 = strarray[i]
 			ldr		r5, [r1]		;r5 = strarray[j]
 
-compare		ldr		r2, [r4]		;r2 = strarray[i][k]
-			ldr		r3, [r5]		;r3 = strarray[i][k]
+compare		ldrb	r2, [r4]		;r2 = strarray[i][k]
+			ldrb	r3, [r5]		;r3 = strarray[i][k]
 
 			cmp		r2, #0			;if r2 == null
 			beq		return
@@ -94,8 +94,8 @@ swap		ble		return
 return		pop		{lr, r4, r5}
 			bx		lr
 
-next_char	add		r4, #4
-			add		r5, #4
+next_char	add		r4, #1
+			add		r5, #1
 			b		compare
 
 			ENDP
@@ -105,11 +105,11 @@ next_char	add		r4, #4
 strarray	DCD	str1, str2, str3, str4, str5, str6, str7
 	
 	
-str1		DCB	"First string",0
-str2		DCB	"Second string",0
-str3		DCB	"So, do I really need a third string",0
-str4		DCB	"Tetraphobia is the fear of the number 4",0
-str5		DCB	"A is for apple",0
-str6		DCB	"Z is called \'zed\' in Canada",0
-str7		DCB	"M is for middle",0
+str1		DCB	"First string",0								;0x268
+str2		DCB	"Second string",0								;0x275
+str3		DCB	"So, do I really need a third string",0			;0x283
+str4		DCB	"Tetraphobia is the fear of the number 4",0		;0x2A7
+str5		DCB	"A is for apple",0								;0x2CF
+str6		DCB	"Z is called \'zed\' in Canada",0				;0x2DE
+str7		DCB	"M is for middle",0								;0x2FA
 		END
