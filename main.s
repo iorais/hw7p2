@@ -83,9 +83,9 @@ compare		ldrb	r2, [r4]		;r2 = strarray[i][k]
 			beq		next_char		
 									;else if strarray[i][k] < strarray[j][k]
 			
-swap		ble		return
+			ble		return
 			
-			ldr		r4, [r0]		;r4 = strarray[i]
+swap		ldr		r4, [r0]		;r4 = strarray[i]
 			ldr		r5, [r1]		;r5 = strarray[j]		
 
 			str		r5, [r0]		;swap(strarray[i], strarray[j])
@@ -105,11 +105,11 @@ next_char	add		r4, #1
 strarray	DCD	str1, str2, str3, str4, str5, str6, str7
 	
 	
-str1		DCB	"First string",0								;0x268
-str2		DCB	"Second string",0								;0x275
-str3		DCB	"So, do I really need a third string",0			;0x283
-str4		DCB	"Tetraphobia is the fear of the number 4",0		;0x2A7
-str5		DCB	"A is for apple",0								;0x2CF
-str6		DCB	"Z is called \'zed\' in Canada",0				;0x2DE
-str7		DCB	"M is for middle",0								;0x2FA
+str1 DCB "Andrew",0			;0x268
+str2 DCB "aardvark",0		;0x26F
+str3 DCB "airplanes",0		;0x278
+str4 DCB "America",0		;0x282
+str5 DCB "air ball",0		;0x28A
+str6 DCB "Air Canada",0		;0x293
+str7 DCB "airplane",0		;0x29E
 		END
